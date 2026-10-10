@@ -10,11 +10,14 @@ import { HomepageSeltzerMedia } from "@/home/HomepageProductMedia";
 import LifestyleMosaic from "@/home/LifestyleMosaic";
 import BrandPrinciples from "@/home/BrandPrinciples";
 import ProductRail from "@/storefront/ProductRail";
+import ShelflineProductStage from "@/home/ShelflineProductStage";
 import CatalogProductCard from "@/storefront/CatalogProductCard";
 import Accordion from "@/editorial/Accordion";
 import ResponsiveImage from "@/storefront/ResponsiveImage";
 import {products} from "@/catalogData";
 import {responsiveImages} from "@/generated/responsiveImages";
+
+const ENABLE_NATIVE_SHELF_STAGE=import.meta.env.VITE_SHELFLINE_STAGE === "true";
 
 const LEARN_ITEMS=[
   {
@@ -57,19 +60,28 @@ export default function HomePage(){
         </div>
       </section>
 
-      <ProductRail eyebrow="The seltzer collection" title="Four flavors. One point of view." intro="Crisp sparkling THC seltzers presented by flavor, potency, and format." to="/shop/seltzers" linkLabel="Shop seltzers">
-        {seltzers.map(product=><CatalogProductCard
-          key={product.id}
-          id={product.id}
-          to={"/product/"+product.id}
-          mediaNode={<HomepageSeltzerMedia product={product}/>}
-          contextLabel={product.flavorFamily}
-          name={product.name}
-          price={product.price}
-          reviewStatus={product.description}
-          meta={<span className="product-facts"><span>{product.thcMgPerCan+" mg THC"}</span><span>{product.canVolume}</span></span>}
-        />)}
-      </ProductRail>
+      {ENABLE_NATIVE_SHELF_STAGE ? (
+        <ShelflineProductStage
+          products={seltzers}
+          title="Four flavors. One point of view."
+          renderProduct={product=><HomepageSeltzerMedia product={product}/>}
+        />
+      ) : (
+        <ProductRail eyebrow="The seltzer collection" title="Four flavors. One point of view." intro="Crisp sparkling THC seltzers presented by flavor, potency, and format." to="/shop/seltzers" linkLabel="Shop seltzers">
+          {seltzers.map(product=><CatalogProductCard
+            key={product.id}
+            id={product.id}
+            to={"/product/"+product.id}
+            mediaNode={<HomepageSeltzerMedia product={product}/>}
+            contextLabel={product.flavorFamily}
+            name={product.name}
+            price={product.price}
+            reviewStatus={product.description}
+            meta={<span className="product-facts"><span>{product.thcMgPerCan+" mg THC"}</span><span>{product.canVolume}</span></span>}
+          />)}
+        </ProductRail>
+  
+      )}
 
       <LifestyleMosaic/>
       <BrandPrinciples/>
