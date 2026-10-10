@@ -48,14 +48,14 @@ export default function ShelflineProductStage({ products = [], renderProduct, ti
       const y = (event.clientY - rect.top) / rect.height - 0.5;
       cancelAnimationFrame(rafRef.current);
       rafRef.current = requestAnimationFrame(() => {
-        unit.style.setProperty('--slps-pointer-x', String(Math.max(-1, Math.min(1, x * 2))));
-        unit.style.setProperty('--slps-pointer-y', String(Math.max(-1, Math.min(1, y * 2))));
+        unit.style.setProperty('--slps-rotate-x', `${7 + Math.max(-1, Math.min(1, y * 2)) * 2}deg`);
+        unit.style.setProperty('--slps-rotate-y', `${-16 + Math.max(-1, Math.min(1, x * 2)) * 3}deg`);
       });
     }
     function onLeave() {
       cancelAnimationFrame(rafRef.current);
-      unit.style.setProperty('--slps-pointer-x', '0');
-      unit.style.setProperty('--slps-pointer-y', '0');
+      unit.style.setProperty('--slps-rotate-x', '7deg');
+      unit.style.setProperty('--slps-rotate-y', '-16deg');
     }
     node.addEventListener('pointermove', onPointerMove, { passive: true });
     node.addEventListener('pointerleave', onLeave);
@@ -63,8 +63,8 @@ export default function ShelflineProductStage({ products = [], renderProduct, ti
       node.removeEventListener('pointermove', onPointerMove);
       node.removeEventListener('pointerleave', onLeave);
       cancelAnimationFrame(rafRef.current);
-      unit.style.removeProperty('--slps-pointer-x');
-      unit.style.removeProperty('--slps-pointer-y');
+      unit.style.removeProperty('--slps-rotate-x');
+      unit.style.removeProperty('--slps-rotate-y');
     };
   }, [reduceMotion]);
 
