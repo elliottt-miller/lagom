@@ -10,9 +10,11 @@ const potencyValues = [...new Set(showcaseProducts.map(product => product.thcMgP
 const potencyCopy = potencyValues.length === 1 ? `${potencyValues[0]} mg THC per can.` : "Read each can for THC content.";
 
 /**
- * Defiant Mango defines the hero composition, expressive type scale, warm
- * campaign surfaces and CTA language. Shelfline owns *only* the product shelf.
- * Domain product details and artwork remain Lagom-owned.
+ * Source architecture:
+ * Defiant Mango — atmospheric ivory/cream hero, oversized Ranchers backdrop
+ * heading, centrally floating merchandise, minimal copy and controls.
+ * Shelfline — exclusively the interactive 3D product shelf.
+ * Lagom — official cans, catalog, language, navigation and domain.
  */
 export default function HomeHero() {
   return (
@@ -22,16 +24,18 @@ export default function HomeHero() {
         <span className="dm-hero__cloud dm-hero__cloud--two" />
       </div>
       <div className="dm-hero__inner">
-        <div className="dm-hero__copy">
-          <p className="dm-eyebrow dm-hero__eyebrow"><span className="dm-eyebrow__line" /> Lagom Naturals / Better by balance</p>
-          <h1 id="dm-hero-heading" className="dm-hero__title">
-            <span>GOOD</span>
-            <span>THINGS</span>
-            <em>IN BALANCE.</em>
-          </h1>
-          <p className="dm-hero__intro">
-            Flavor-first hemp-derived THC seltzers for moments worth making your own.
-          </p>
+        <div className="dm-hero__top">
+          <p className="dm-hero__badge"><span>New perspective</span> Good things in balance</p>
+          <h1 id="dm-hero-heading" className="dm-hero__title">JUST RIGHT.</h1>
+        </div>
+        <div className="dm-hero__stage">
+          <ShelflineHeroShelf products={showcaseProducts} />
+        </div>
+        <div className="dm-hero__foot">
+          <div className="dm-hero__copy">
+            <p className="dm-hero__intro">Flavor-first hemp-derived THC seltzers for moments worth making your own.</p>
+            <p className="dm-hero__disclaimer">{showcaseProducts.length} flavors. {potencyCopy} Individual experiences vary.</p>
+          </div>
           <div className="dm-hero__actions">
             <Link className="dm-button dm-button--dark" to="/shop/seltzers">
               Explore seltzers <ArrowRight aria-hidden="true" />
@@ -40,19 +44,12 @@ export default function HomeHero() {
               THC, explained <MoveUpRight aria-hidden="true" />
             </Link>
           </div>
-          <p className="dm-hero__disclaimer">{showcaseProducts.length} flavors. {potencyCopy} Individual experiences vary.</p>
-        </div>
-        <div className="dm-hero__stage">
-          <div className="dm-hero__stage-top" aria-hidden="true">
-            <span>THE SELTZER COLLECTION</span><span>01 / 04</span>
-          </div>
-          <ShelflineHeroShelf products={showcaseProducts} />
         </div>
       </div>
       <div className="dm-hero__bottom" aria-hidden="true">
-        <span>MADE FOR THE MOMENT</span>
+        <span>LAGOM NATURALS / MINNEAPOLIS</span>
         <span className="dm-hero__bottom-mark">✳</span>
-        <span>FOUR FLAVORS. YOUR WAY.</span>
+        <span>NEITHER TOO MUCH, NOR TOO LITTLE</span>
       </div>
     </section>
   );
