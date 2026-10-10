@@ -1,0 +1,50 @@
+import { t as e } from "./rolldown-runtime.Dh6celcD.mjs";
+import { D as t, c as n, m as r, s as i } from "./react.D0omlcQg.mjs";
+import { M as a } from "./motion.Bi2Azsus.mjs";
+import { L as o, Lt as s, P as c, et as l, o as u } from "./framer.zRtTBSC3.mjs";
+var d,
+  f,
+  p,
+  m,
+  h = e(() => {
+    (n(),
+      l(),
+      t(),
+      (d = `url('data:image/svg+xml,<svg display="block" role="presentation" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g d="M 15.021 50.012 C 15.021 30.687 30.687 15.021 50.012 15.021 C 69.338 15.021 85.004 30.687 85.004 50.012 C 85.004 69.338 69.338 85.004 50.012 85.004 C 30.687 85.004 15.021 69.338 15.021 50.012 Z M 50.012 100 C 77.621 100 100 77.621 100 50.012 C 100 22.404 77.621 0.025 50.012 0.025 C 22.404 0.025 0.025 22.404 0.025 50.012 C 0.025 77.621 22.404 100 50.012 100 Z M 0 49.988 C 0 22.379 22.379 0 49.988 0 L 49.988 14.996 C 30.662 14.996 14.996 30.662 14.996 49.988 Z" fill="transparent" height="99.9999885610566px" id="Sj3L4dRPK" width="100px"><g opacity="0.2"><path d="M 14.996 49.988 C 14.996 30.662 30.662 14.996 49.988 14.996 C 69.313 14.996 84.979 30.662 84.979 49.988 C 84.979 69.313 69.313 84.979 49.988 84.979 C 30.662 84.979 14.996 69.313 14.996 49.988 Z M 49.988 99.975 C 77.596 99.975 99.975 77.596 99.975 49.988 C 99.975 22.379 77.596 0 49.988 0 C 22.379 0 0 22.379 0 49.988 C 0 77.596 22.379 99.975 49.988 99.975 Z" fill="var(--118a55, var(--token-20891e9f-0dd5-476a-bdd1-5f7056109a89, rgb(0, 0, 0)))" height="99.97500587024544px" id="hs2PlSSLu" transform="translate(0.025 0.025)" width="99.97500586452463px"/></g><path d="M 0 49.988 C 0 22.379 22.379 0 49.988 0 L 49.988 14.996 C 30.662 14.996 14.996 30.662 14.996 49.988 Z" fill="var(--118a55, var(--token-20891e9f-0dd5-476a-bdd1-5f7056109a89, rgb(0, 0, 0)))" height="49.98750293283456px" id="lL24lIlID" width="49.98750293283471px"/></g></svg>') alpha no-repeat center / auto var(--framer-icon-mask-mode, add), var(--framer-icon-mask, none)`),
+      (f = r((e, t) => {
+        let { animated: n, layoutId: r, children: o, ...s } = e;
+        return n ? i(a.div, { ...s, layoutId: r, ref: t }) : i(`div`, { ...s, ref: t });
+      })),
+      (p = ({ color: e, height: t, id: n, width: r, ...i }) => ({
+        ...i,
+        GaDHsaDms:
+          e ?? i.GaDHsaDms ?? `var(--token-20891e9f-0dd5-476a-bdd1-5f7056109a89, rgb(0, 0, 0))`,
+      })),
+      (m = s(
+        r(function (e, t) {
+          let { style: n, className: r, layoutId: a, variant: s, GaDHsaDms: c, ...l } = p(e);
+          return i(f, {
+            ...l,
+            className: o(`framer-WJlJO`, r),
+            layoutId: a,
+            ref: t,
+            style: { "--118a55": c, ...n },
+          });
+        }),
+        [
+          `.framer-WJlJO { -webkit-mask: ${d}; aspect-ratio: 1; background-color: var(--118a55); mask: ${d}; width: 100px; }`,
+        ],
+        `framer-WJlJO`
+      )),
+      (m.displayName = `Spinner`),
+      c(m, {
+        GaDHsaDms: {
+          defaultValue: `var(--token-20891e9f-0dd5-476a-bdd1-5f7056109a89, rgb(0, 0, 0)) /* {"name":"Icon Black"} */`,
+          hidden: !1,
+          title: `Color`,
+          type: u.Color,
+        },
+      }));
+  });
+export { h as n, m as t };
+//# sourceMappingURL=rulyW4hkS.B6GaFbwO.mjs.map

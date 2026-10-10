@@ -1,0 +1,13 @@
+{
+  "source": "https://powder.framer.website/",
+  "platform": "framer",
+  "captureMode": "html-with-runtime",
+  "generatedAt": "2026-10-10T19:48:12.746Z",
+  "assets": 326,
+  "failedAssets": [],
+  "subpages": 18,
+  "visualValidation": "not-run",
+  "limitations": [
+    "Server-side accounts, payments, search and form processing are not exported."
+  ]
+}

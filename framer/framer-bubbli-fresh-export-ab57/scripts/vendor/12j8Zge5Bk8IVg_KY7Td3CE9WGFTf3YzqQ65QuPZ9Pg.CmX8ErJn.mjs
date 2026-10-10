@@ -1,0 +1,33 @@
+import { t as e } from "./rolldown-runtime.Dh6celcD.mjs";
+import { n as t, t as n } from "./shared-lib.Cln7NIgD.mjs";
+function r(e, n) {
+  return {
+    breakpoints: [
+      { hash: `1pgkris`, mediaQuery: `(min-width: 1200px)` },
+      { hash: `1h0cis7`, mediaQuery: `(min-width: 810px) and (max-width: 1199.98px)` },
+      { hash: `7sdmug`, mediaQuery: `(max-width: 809.98px)` },
+    ],
+    description: t(e, n).description,
+    elements: {},
+    robots: `max-image-preview:large`,
+    serializationId: `framer-KdP99`,
+    title: t(e, n).title || `Blog`,
+    viewport: `width=device-width`,
+  };
+}
+var i,
+  a,
+  o = e(() => {
+    (n(),
+      (i = 1),
+      (a = {
+        exports: {
+          metadataVersion: { type: `variable`, annotations: { framerContractVersion: `1` } },
+          default: { type: `function`, annotations: { framerContractVersion: `1` } },
+          __FramerMetadata__: { type: `variable` },
+        },
+      }));
+  });
+o();
+export { a as __FramerMetadata__, r as default, i as metadataVersion, o as t };
+//# sourceMappingURL=12j8Zge5Bk8IVg_KY7Td3CE9WGFTf3YzqQ65QuPZ9Pg.CmX8ErJn.mjs.map

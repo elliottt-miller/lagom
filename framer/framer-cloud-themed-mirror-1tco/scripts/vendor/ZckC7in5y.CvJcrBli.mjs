@@ -1,0 +1,40 @@
+import { t as e } from "./rolldown-runtime.Dh6celcD.mjs";
+import { A as t, G as n } from "./framer.CS_JK_Iv.mjs";
+var r,
+  i,
+  a,
+  o = e(() => {
+    (n(),
+      t.loadFonts([`GF;Funnel Display-600`, `GF;Funnel Display-700`]),
+      (r = [
+        {
+          explicitInter: !0,
+          fonts: [
+            {
+              cssFamilyName: `Funnel Display`,
+              source: `google`,
+              style: `normal`,
+              uiFamilyName: `Funnel Display`,
+              url: `https://fonts.gstatic.com/s/funneldisplay/v3/B50bF7FGv37QNVWgE0ga--4PbZSRJXrOHcLHLoAYRGTXXcVwIZDKFA.woff2`,
+              weight: `600`,
+            },
+            {
+              cssFamilyName: `Funnel Display`,
+              source: `google`,
+              style: `normal`,
+              uiFamilyName: `Funnel Display`,
+              url: `https://fonts.gstatic.com/s/funneldisplay/v3/B50bF7FGv37QNVWgE0ga--4PbZSRJXrOHcLHLoAYfWTXXcVwIZDKFA.woff2`,
+              weight: `700`,
+            },
+          ],
+        },
+      ]),
+      (i = [
+        `.framer-d6Te3 .framer-styles-preset-rsefcq:not(.rich-text-wrapper), .framer-d6Te3 .framer-styles-preset-rsefcq.rich-text-wrapper h2 { --framer-font-family: "Funnel Display", sans-serif; --framer-font-family-bold: "Funnel Display", sans-serif; --framer-font-open-type-features: normal; --framer-font-size: 48px; --framer-font-style: normal; --framer-font-style-bold: normal; --framer-font-variation-axes: normal; --framer-font-weight: 600; --framer-font-weight-bold: 700; --framer-letter-spacing: -0.03em; --framer-line-height: 120%; --framer-paragraph-spacing: 40px; --framer-text-alignment: left; --framer-text-color: var(--token-859ca383-5fee-4317-bcbb-704e1efeddd5, #212121); --framer-text-decoration: none; --framer-text-stroke-color: initial; --framer-text-stroke-width: initial; --framer-text-transform: none; }`,
+        `@media (max-width: 1259px) and (min-width: 810px) { .framer-d6Te3 .framer-styles-preset-rsefcq:not(.rich-text-wrapper), .framer-d6Te3 .framer-styles-preset-rsefcq.rich-text-wrapper h2 { --framer-font-family: "Funnel Display", sans-serif; --framer-font-family-bold: "Funnel Display", sans-serif; --framer-font-open-type-features: normal; --framer-font-size: 42px; --framer-font-style: normal; --framer-font-style-bold: normal; --framer-font-variation-axes: normal; --framer-font-weight: 600; --framer-font-weight-bold: 700; --framer-letter-spacing: -0.03em; --framer-line-height: 120%; --framer-paragraph-spacing: 40px; --framer-text-alignment: left; --framer-text-color: var(--token-859ca383-5fee-4317-bcbb-704e1efeddd5, #212121); --framer-text-decoration: none; --framer-text-stroke-color: initial; --framer-text-stroke-width: initial; --framer-text-transform: none; } }`,
+        `@media (max-width: 809px) and (min-width: 0px) { .framer-d6Te3 .framer-styles-preset-rsefcq:not(.rich-text-wrapper), .framer-d6Te3 .framer-styles-preset-rsefcq.rich-text-wrapper h2 { --framer-font-family: "Funnel Display", sans-serif; --framer-font-family-bold: "Funnel Display", sans-serif; --framer-font-open-type-features: normal; --framer-font-size: 34px; --framer-font-style: normal; --framer-font-style-bold: normal; --framer-font-variation-axes: normal; --framer-font-weight: 600; --framer-font-weight-bold: 700; --framer-letter-spacing: -0.03em; --framer-line-height: 120%; --framer-paragraph-spacing: 40px; --framer-text-alignment: left; --framer-text-color: var(--token-859ca383-5fee-4317-bcbb-704e1efeddd5, #212121); --framer-text-decoration: none; --framer-text-stroke-color: initial; --framer-text-stroke-width: initial; --framer-text-transform: none; } }`,
+      ]),
+      (a = `framer-d6Te3`));
+  });
+export { o as i, i as n, r, a as t };
+//# sourceMappingURL=ZckC7in5y.CvJcrBli.mjs.map

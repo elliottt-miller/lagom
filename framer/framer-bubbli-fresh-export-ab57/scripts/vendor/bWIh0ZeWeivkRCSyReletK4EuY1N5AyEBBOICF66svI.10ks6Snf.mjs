@@ -1,0 +1,33 @@
+import { t as e } from "./rolldown-runtime.Dh6celcD.mjs";
+import { n as t, t as n } from "./shared-lib.Cln7NIgD.mjs";
+function r(e, n) {
+  return {
+    breakpoints: [
+      { hash: `zc38c2`, mediaQuery: `(min-width: 1200px)` },
+      { hash: `tvv7r7`, mediaQuery: `(min-width: 810px) and (max-width: 1199.98px)` },
+      { hash: `1ox4f7l`, mediaQuery: `(max-width: 809.98px)` },
+    ],
+    description: t(e, n).description,
+    elements: {},
+    robots: `max-image-preview:large`,
+    serializationId: `framer-oypac`,
+    title: t(e, n).title || `Favorites`,
+    viewport: `width=device-width`,
+  };
+}
+var i,
+  a,
+  o = e(() => {
+    (n(),
+      (i = 1),
+      (a = {
+        exports: {
+          metadataVersion: { type: `variable`, annotations: { framerContractVersion: `1` } },
+          default: { type: `function`, annotations: { framerContractVersion: `1` } },
+          __FramerMetadata__: { type: `variable` },
+        },
+      }));
+  });
+o();
+export { a as __FramerMetadata__, r as default, i as metadataVersion, o as t };
+//# sourceMappingURL=bWIh0ZeWeivkRCSyReletK4EuY1N5AyEBBOICF66svI.10ks6Snf.mjs.map

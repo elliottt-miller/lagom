@@ -1,0 +1,23 @@
+{
+  "source": "https://imaginative-successes-439657.framer.app/",
+  "platform": "framer",
+  "captureMode": "html-with-runtime",
+  "generatedAt": "2026-10-10T20:40:36.447Z",
+  "assets": 742,
+  "failedAssets": [
+    {
+      "url": "https://imaginative-successes-439657.framer.app/undefined",
+      "message": "HTTP 404"
+    },
+    {
+      "url": "https://imaginative-successes-439657.framer.app/policy/undefined",
+      "message": "HTTP 404"
+    }
+  ],
+  "subpages": 6,
+  "visualValidation": "not-run",
+  "limitations": [
+    "Server-side accounts, payments, search and form processing are not exported.",
+    "Some assets could not be saved; remote fallback URLs may require network access."
+  ]
+}

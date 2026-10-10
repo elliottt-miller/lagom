@@ -1,0 +1,27 @@
+import { t as e } from "./rolldown-runtime.Dh6celcD.mjs";
+async function t(e, t, i) {
+  let a = r[e],
+    o = a ? await a(t, i) : void 0,
+    s = { bodyEnd: [], bodyStart: [], headEnd: [], headStart: [] };
+  for (let t of n) {
+    if (t.pageIds && !t.pageIds.has(e)) continue;
+    let n = t.code(o);
+    n && s[t.placement].push({ ...t, code: n });
+  }
+  return s;
+}
+var n, r, i, a;
+e(() => {
+  ((n = []),
+    (r = {}),
+    (i = { bodyEnd: [], bodyStart: [`OKIHRpS9J`], headEnd: [], headStart: [] }),
+    (a = {
+      exports: {
+        snippetsSorting: { type: `variable`, annotations: { framerContractVersion: `1` } },
+        getSnippets: { type: `function`, annotations: { framerContractVersion: `1` } },
+        __FramerMetadata__: { type: `variable` },
+      },
+    }));
+})();
+export { a as __FramerMetadata__, t as getSnippets, i as snippetsSorting };
+//# sourceMappingURL=M_QH9gDqIfNztKwU4MZ3KW8D5jBlhLl_pYt1s1K5Xg8.CfXj9-LH.mjs.map
