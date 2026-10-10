@@ -3,6 +3,7 @@ import FeatureCard from '@/editorial/FeatureCard'
 import {responsiveImages} from '@/generated/responsiveImages'
 import '@/styles/mobile/70-editorial.css'
 import '@/styles/editorial-routes.css'
+import '@/styles/defiant-mango-routes.css'
 
 function StoryPicture({desktopMedia,mobileMedia,alt='',className='',eager=false,sizes='100vw'}){
   return <picture className={className}>
