@@ -3,6 +3,7 @@ import EditorialPageHeader from '@/editorial/EditorialPageHeader'
 import Accordion from '@/editorial/Accordion'
 import '@/styles/mobile/70-editorial.css'
 import '@/styles/editorial-routes.css'
+import '@/styles/defiant-mango-routes.css'
 
 const ITEMS=[
   {
