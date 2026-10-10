@@ -1,5 +1,7 @@
 # Lagom Naturals
 
+> **PROPRIETARY — ALL RIGHTS RESERVED.** Copyright © 2026 Elliott Miller in original materials he owns. This repository is **not open-source licensed**. Unauthorized reuse, redistribution, modification, or commercial incorporation of those materials is not permitted except where authorized by law, GitHub's terms, applicable third-party licenses, or separate written permission. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
+
 ## GitHub Pages production build
 
 Run `npm run build` from the repository root. It updates the optimized storefront
