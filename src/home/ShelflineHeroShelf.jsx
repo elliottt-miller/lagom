@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useReducedMotion } from "@/motionSystem";
 import SeltzerCan from "@/products/SeltzerCan";
+import { integrateShelflinePointer, projectShelflineMotion } from "./shelflineMotionMath";
 
 /**
  * Native Shelfline DsHero reconstruction, hero-only.
@@ -76,11 +77,13 @@ export default function ShelflineHeroShelf({ products, tilt = 1 }) {
     const tick = () => {
       if (!active) return;
       if (visible.current && !document.hidden) {
-        currentX += (target.x - currentX) * 0.07;
-        currentY += (target.y - currentY) * 0.07;
-        unit.style.transform = `rotateX(${(7 - currentY * 6 * tilt).toFixed(2)}deg) rotateY(${(-16 + currentX * 14 * tilt).toFixed(2)}deg)`;
-        scene.style.setProperty("--shs-sx", `${(50 + currentX * 60).toFixed(1)}%`);
-        scene.style.setProperty("--shs-sy", `${(42 + currentY * 50).toFixed(1)}%`);
+        const next = integrateShelflinePointer({ x: currentX, y: currentY }, target);
+        currentX = next.x;
+        currentY = next.y;
+        const projected = projectShelflineMotion(next, tilt);
+        unit.style.transform = projected.transform;
+        scene.style.setProperty("--shs-sx", projected.spotlightX);
+        scene.style.setProperty("--shs-sy", projected.spotlightY);
       }
       raf = requestAnimationFrame(tick);
     };
