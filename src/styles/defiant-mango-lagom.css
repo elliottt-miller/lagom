@@ -103,7 +103,7 @@ body{background:var(--color-paper);color:var(--color-ink)}
   padding:3px 7px;border-radius:999px;background:#e2c9a5;color:#775a38;
 }
 .dm-hero__title{
-  margin:0;color:#e3cfb3;font:400 clamp(98px,15.1vw,220px)/1 var(--dm-display);
+  margin:0;color:#987f5f;font:400 clamp(98px,15.1vw,220px)/1 var(--dm-display);
   letter-spacing:0;text-align:center;text-wrap:nowrap;white-space:nowrap;
 }
 .dm-hero__stage{
