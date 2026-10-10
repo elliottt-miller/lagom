@@ -33,3 +33,6 @@
    after compatibility layers while migration work retires the superseded CSS. */
 @import './editorial-commerce.css';
 @import './editorial-chrome.css';
+
+/* Final native Defiant Mango / Lagom visual owner; Shelfline scoped to hero. */
+@import './defiant-mango-lagom.css';
