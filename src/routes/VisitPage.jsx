@@ -4,6 +4,7 @@ import {responsiveImages} from '@/generated/responsiveImages'
 import ResponsiveImage from '@/storefront/ResponsiveImage'
 import EditorialPageHeader from '@/editorial/EditorialPageHeader'
 import '@/styles/editorial-routes.css'
+import '@/styles/defiant-mango-routes.css'
 
 const storefront=responsiveImages.store['storefront-day']
 

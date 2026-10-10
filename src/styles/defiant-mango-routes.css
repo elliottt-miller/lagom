@@ -1,0 +1,112 @@
+/* Defiant Mango / Lagom route layer.
+   Intentionally separate from global composition so lazy route CSS can load
+   before these last-authority refinements. Data and interaction semantics stay unchanged. */
+.editorial-route{
+  --route-accent:var(--dm-peach-ink);
+  width:min(100%,var(--dm-wide));
+  padding-inline:var(--dm-gutter);
+}
+.editorial-page-header{
+  padding-block:clamp(70px,8vw,120px) clamp(45px,6vw,90px);
+  border-color:var(--dm-line);
+}
+.editorial-page-header h1{
+  color:var(--dm-ink);
+  font:400 clamp(58px,8.2vw,132px)/.82 var(--dm-display)!important;
+  letter-spacing:-.015em!important;
+  max-width:12ch;
+}
+.editorial-page-header>p,.editorial-route__aside{
+  font:850 .66rem/1.4 var(--dm-ui);
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#57615a;
+}
+.editorial-page-header__lede{color:#48514d;font-weight:600}
+.editorial-route__content{border-top:0}
+.editorial-visit__stage{border-color:var(--dm-line)}
+.editorial-visit__utility form>div{border-color:var(--dm-ink)}
+.editorial-visit__utility form button{
+  background:var(--dm-ink);color:white;min-width:98px;
+  transition:background .2s ease;
+}
+.editorial-visit__utility form button:hover{background:#334540}
+.editorial-visit .availability-empty h2{
+  font:400 clamp(35px,3.8vw,58px)/.93 var(--dm-display);
+  letter-spacing:-.01em;
+}
+.editorial-visit__stage>picture,.editorial-visit__stage>picture img{border-radius:18px}
+.editorial-story-principles .editorial-feature-card{border-color:var(--dm-line)}
+.about-story-page .story-origin,.about-story-page .story-life{
+  background:var(--dm-cream)!important;color:var(--dm-ink)!important;
+}
+.about-story-page .story-origin h2,.about-story-page .story-life h2,.about-story-page .story-closing-reference h2{
+  font-family:var(--dm-display)!important;font-weight:400!important;
+  letter-spacing:-.015em!important;line-height:.91!important;
+}
+.about-story-page .story-kicker{font-family:var(--dm-ui)!important;letter-spacing:.13em!important}
+.about-story-page .story-hero__content h1{
+  font:400 clamp(56px,8vw,128px)/.84 var(--dm-display)!important;
+  letter-spacing:-.01em!important;
+}
+.about-story-page .story-closing-reference{background:#b7dfeb!important;color:var(--dm-ink)!important}
+.pdp.pdp--flavor{
+  --pdp-paper:var(--color-paper);
+  color:var(--dm-ink);
+}
+.pdp.pdp--flavor .pdp-media{
+  background:linear-gradient(145deg,#f1e4d0,#e2d2be)!important;
+  border-radius:22px!important;
+}
+.pdp-product-heading h1{
+  font-family:var(--dm-display)!important;
+  font-weight:400!important;
+  font-size:clamp(40px,5.2vw,86px)!important;
+  line-height:.92!important;
+  letter-spacing:-.012em!important;
+  text-transform:uppercase;
+}
+.pdp-desc{color:var(--dm-muted)!important}
+.pdp-facts span{letter-spacing:.08em!important}
+.pdp-purchase{border-color:var(--dm-line)!important}
+.pdp-purchase .primary-bar,.primary-bar.linkbar{
+  border-radius:4px!important;
+  background:var(--dm-ink)!important;
+  color:#fff!important;
+  font:800 .77rem/1 var(--dm-ui)!important;
+  text-transform:uppercase;
+  letter-spacing:.085em!important;
+}
+.pdp-purchase .primary-bar:hover,.primary-bar.linkbar:hover{background:#2e4440!important}
+.pdp.pdp--flavor .size-row button{border-radius:7px!important}
+.pdp.pdp--flavor .product-gallery button{border-radius:8px!important}
+.cart-page,.checkout-page{color:var(--dm-ink)}
+.cart-page h1,.checkout-page>h1{
+  font-family:var(--dm-display)!important;
+  font-weight:400!important;
+  letter-spacing:-.02em!important;
+  text-transform:uppercase;
+}
+.cart-page h1{font-size:clamp(60px,7vw,110px)!important}
+.checkout-page>h1{font-size:clamp(60px,7vw,110px)!important}
+.cart-page .cart-row>img{background:#efe1ce!important;border-radius:12px!important;object-fit:contain!important}
+.cart-page .cart-qty,.checkout-step>.checkout-section .checkout-field{border-color:#c7b8a7!important;border-radius:8px!important}
+.checkout-section__heading h2{font-family:var(--dm-display)!important;font-weight:400!important;letter-spacing:0!important}
+.checkout-summary,.checkout-layout{border-color:var(--dm-line)}
+.checkout-section .method-card,.checkout-section .pickup-card{background:#f9f3e8!important;border-color:#d4c7b8!important}
+.cart-page__checkout,.checkout-summary{background:transparent}
+.empty-state{background:transparent;color:var(--dm-ink)}
+.empty-state h2{font:400 clamp(34px,4vw,64px)/.92 var(--dm-display)!important}
+@media(min-width:900px){
+  .pdp.pdp--flavor .pdp-media{border-radius:24px!important}
+  .pdp.pdp--flavor .pdp-copy{padding-top:6px!important}
+  .checkout-page,.cart-page{background:var(--color-paper)}
+}
+@media(max-width:899px){
+  .editorial-page-header{padding-block:50px 38px}
+  .editorial-page-header h1{font-size:clamp(52px,12vw,82px)!important}
+  .editorial-visit__stage>picture,.editorial-visit__stage>picture img{border-radius:12px}
+  .about-story-page .story-hero__content h1{font-size:clamp(49px,12.8vw,84px)!important}
+  .pdp-product-heading h1{font-size:clamp(40px,9.8vw,66px)!important}
+  .cart-page h1,.checkout-page>h1{font-size:clamp(50px,12vw,84px)!important}
+}
