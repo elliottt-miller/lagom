@@ -6,6 +6,8 @@ import { products } from "@/catalogData";
 
 const HERO_IDS = ["24k-lemonade", "blackberry-breeze", "strawberry-lime-fusion", "watermelon-refresher"];
 const showcaseProducts = HERO_IDS.map(id => products.find(product => product.id === id)).filter(Boolean);
+const potencyValues = [...new Set(showcaseProducts.map(product => product.thcMgPerCan).filter(value => Number.isFinite(value)))];
+const potencyCopy = potencyValues.length === 1 ? `${potencyValues[0]} mg THC per can.` : "Read each can for THC content.";
 
 /**
  * Defiant Mango defines the hero composition, expressive type scale, warm
@@ -38,7 +40,7 @@ export default function HomeHero() {
               THC, explained <MoveUpRight aria-hidden="true" />
             </Link>
           </div>
-          <p className="dm-hero__disclaimer">Four flavors. 10 mg THC per can. Individual experiences vary.</p>
+          <p className="dm-hero__disclaimer">{showcaseProducts.length} flavors. {potencyCopy} Individual experiences vary.</p>
         </div>
         <div className="dm-hero__stage">
           <div className="dm-hero__stage-top" aria-hidden="true">
