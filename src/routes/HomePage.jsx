@@ -7,10 +7,9 @@ import HomepageAtmosphere from "@/home/HomepageAtmosphere";
 import ScrollCloudParallax from "@/home/ScrollCloudParallax";
 import GummyShowcase from "@/home/GummyShowcase";
 import { HomepageSeltzerMedia, HomepageGummyMedia } from "@/home/HomepageProductMedia";
+import HomeProductLineup from "@/home/HomeProductLineup";
 import LifestyleMosaic from "@/home/LifestyleMosaic";
 import BrandPrinciples from "@/home/BrandPrinciples";
-import ProductRail from "@/storefront/ProductRail";
-import CatalogProductCard from "@/storefront/CatalogProductCard";
 import Accordion from "@/editorial/Accordion";
 import ResponsiveImage from "@/storefront/ResponsiveImage";
 import { products } from "@/catalogData";
@@ -59,21 +58,15 @@ export default function HomePage() {
         </section>
 
         <div className="dm-home__seltzers">
-          <ProductRail eyebrow="02 / Meet the lineup" title="Good taste. Great company." intro="Four sparkling flavors. Considered details. A different way to bring something to the occasion." to="/shop/seltzers" linkLabel="Shop seltzers">
-            {seltzers.map(product => (
-              <CatalogProductCard
-                key={product.id}
-                id={product.id}
-                to={`/product/${product.id}`}
-                mediaNode={<HomepageSeltzerMedia product={product} />}
-                contextLabel={product.flavorFamily}
-                name={product.name}
-                price={product.price}
-                reviewStatus={product.description}
-                meta={<span className="product-facts"><span>{product.thcMgPerCan} mg THC</span><span>{product.canVolume}</span></span>}
-              />
-            ))}
-          </ProductRail>
+          <HomeProductLineup
+            format="seltzer"
+            products={seltzers}
+            eyebrow="02 / Meet the lineup"
+            title="Good taste. Great company."
+            intro="Four sparkling flavors. A little more considered, a lot more delicious."
+            to="/shop/seltzers"
+            linkLabel="Shop seltzers"
+          />
         </div>
 
         <section className="dm-discovery" aria-label="Explore Lagom products">
