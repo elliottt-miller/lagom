@@ -39,3 +39,6 @@
 
 /* Homepage-only atmospheric restoration after Mango's global layer. */
 @import './home/restore-sky-chrome.css';
+
+/* Final homepage presentation owner: original Lagom sky/CTA + unboxed commerce. */
+@import './home/unified-atmospheric-editorial.css';
