@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Shell from "@/storefront/StorefrontShell";
 import HomeHero from "@/HomeHeroPortal";
+import HomepageAtmosphere from "@/home/HomepageAtmosphere";
+import ScrollCloudParallax from "@/home/ScrollCloudParallax";
 import GummyShowcase from "@/home/GummyShowcase";
 import { HomepageSeltzerMedia, HomepageGummyMedia } from "@/home/HomepageProductMedia";
 import LifestyleMosaic from "@/home/LifestyleMosaic";
@@ -39,7 +41,9 @@ export default function HomePage() {
 
   return (
     <Shell>
-      <div className="editorial-home dm-home">
+      <div className="editorial-home dm-home sky-home">
+        <HomepageAtmosphere />
+        <ScrollCloudParallax />
         <HomeHero />
 
         <section className="dm-statement" aria-labelledby="dm-statement-heading">
