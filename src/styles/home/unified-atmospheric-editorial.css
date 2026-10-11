@@ -57,6 +57,14 @@
   }
 }
 @media(max-width:899px){
+  .mobile-reference-header{
+    width:100%!important;
+    border-radius:0!important;
+    background:rgba(246,250,251,.35)!important;
+    border-bottom:1px solid rgba(255,255,255,.28)!important;
+    -webkit-backdrop-filter:blur(16px) saturate(1.12)!important;
+    backdrop-filter:blur(16px) saturate(1.12)!important;
+  }
   body:has(.dm-home) .mobile-reference-header.is-home:not(.is-home-scrolled){
     background:rgba(9,104,178,.09)!important;
     border-bottom:1px solid rgba(255,255,255,.28)!important;
