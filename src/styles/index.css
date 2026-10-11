@@ -36,3 +36,6 @@
 
 /* Final native Defiant Mango / Lagom visual owner; Shelfline scoped to hero. */
 @import './defiant-mango-lagom.css';
+
+/* Homepage-only atmospheric restoration after Mango's global layer. */
+@import './home/restore-sky-chrome.css';
