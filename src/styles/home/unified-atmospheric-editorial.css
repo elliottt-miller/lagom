@@ -1,0 +1,866 @@
+/* Lagom homepage — continuous atmospheric art direction, after PR43.
+ * Preserves headless catalog semantics, native Shelfline 3D stage, live WebGL
+ * clouds, document scrolling, and the original dark footer.
+ * Deliberately scoped to .dm-home except the translucent shared header. */
+
+/* The common header remains edge-to-edge and genuinely translucent on every
+ * storefront route. Home alone overlays the running sky behind the header. */
+@media (min-width:900px){
+  .app-shell > .site-header{
+    width:100%!important;
+    inline-size:100%!important;
+    margin:0!important;
+    top:0!important;
+    border:0!important;
+    border-radius:0!important;
+    border-bottom:1px solid rgba(255,255,255,.33)!important;
+    background:rgba(246,250,250,.22)!important;
+    -webkit-backdrop-filter:blur(15px) saturate(1.18)!important;
+    backdrop-filter:blur(15px) saturate(1.18)!important;
+    box-shadow:none!important;
+  }
+  body:has(.dm-home) .app-shell > main{
+    margin-top:-78px!important;
+    position:relative;
+    z-index:0;
+  }
+  body:has(.dm-home) .app-shell > .site-header,
+  body:has(.dm-home) .app-shell > .site-header.site-header--shop-open{
+    background:rgba(9,104,178,.10)!important;
+    border-bottom:1px solid rgba(255,255,255,.27)!important;
+    -webkit-backdrop-filter:blur(13px) saturate(1.12)!important;
+    backdrop-filter:blur(13px) saturate(1.12)!important;
+  }
+  body:has(.dm-home) .site-header :is(.desktop-nav__links>a,.desktop-nav__shop-trigger,.header-tools .icon-btn){
+    color:#fff!important;
+    text-shadow:0 1px 10px rgba(7,54,100,.35);
+  }
+  body:has(.dm-home) .site-header .brand__logo--dark{display:none!important}
+  body:has(.dm-home) .site-header .brand__logo--light{display:block!important}
+  body:has(.dm-home) .site-header .desktop-nav__shop-trigger,
+  body:has(.dm-home) .site-header .desktop-nav__shop-trigger:hover{
+    background:transparent!important;
+    border-color:transparent!important;
+    box-shadow:none!important;
+  }
+  body:has(.dm-home) .site-header :is(a,button):focus-visible{
+    outline:2px solid #fff!important;
+    outline-offset:3px;
+  }
+  body:has(.dm-home) .site-header .header-account::before,
+  body:has(.dm-home) .site-header .cart-icon::before{
+    background:rgba(255,255,255,.51)!important;
+  }
+  body:has(.dm-home) .desktop-shop-panel :is(a,button){color:#163c52!important;text-shadow:none}
+  body:has(.dm-home) .desktop-shop-panel :is(a,button):focus-visible{
+    outline-color:#163c52!important;
+  }
+}
+@media(max-width:899px){
+  body:has(.dm-home) .mobile-reference-header.is-home:not(.is-home-scrolled){
+    background:rgba(9,104,178,.09)!important;
+    border-bottom:1px solid rgba(255,255,255,.28)!important;
+    -webkit-backdrop-filter:blur(12px) saturate(1.12)!important;
+    backdrop-filter:blur(12px) saturate(1.12)!important;
+  }
+  body:has(.dm-home) .mobile-reference-header.is-home.is-home-scrolled{
+    background:rgba(210,238,249,.58)!important;
+    -webkit-backdrop-filter:blur(18px) saturate(1.12)!important;
+    backdrop-filter:blur(18px) saturate(1.12)!important;
+  }
+}
+
+/* Actual pre-redesign Lagom headline and action, adapted to keep Shelfline's
+ * interactive merchandise in the center of the composed hero. */
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__inner{
+  padding-top:clamp(142px,12vw,188px);
+  padding-bottom:clamp(24px,3vw,48px);
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__top{
+  z-index:4;
+  width:100%;
+  gap:0;
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__eyebrow{
+  margin:0 0 14px;
+  color:#effaff;
+  font:800 clamp(.67rem,.92vw,.84rem)/1.35 var(--dm-ui);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-shadow:0 1px 8px rgba(10,65,105,.25);
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__title{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:0;
+  max-width:100%;
+  font:750 clamp(48px,7.3vw,111px)/.94 var(--dm-ui);
+  letter-spacing:-.057em;
+  text-align:center;
+  white-space:normal;
+  text-wrap:balance;
+  color:#f7fcff!important;
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__title span,
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__title strong{
+  display:block;
+  color:inherit;
+  font:inherit;
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__title strong{
+  letter-spacing:-.064em;
+}
+#root .dm-home.sky-home .dm-hero__shop-now{
+  position:relative;
+  z-index:5;
+  display:inline-flex;
+  min-height:50px;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(18px,2.5vw,40px);
+  margin:26px auto 0;
+  padding:13px 25px;
+  border:1px solid rgba(255,255,255,.92);
+  border-radius:3px;
+  background:#fff;
+  color:#112d40;
+  font:800 .73rem/1.2 var(--dm-ui);
+  letter-spacing:.085em;
+  text-decoration:none;
+  transition:background-color .2s,color .2s,transform .25s ease;
+}
+#root .dm-home.sky-home .dm-hero__shop-now svg{width:17px;height:17px}
+#root .dm-home.sky-home .dm-hero__shop-now:hover{
+  background:#e0f2fb;
+  transform:translateY(-2px);
+}
+#root .dm-home.sky-home .dm-hero__shop-now:focus-visible,
+#root .dm-home.sky-home .dm-hero__learn:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:4px;
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__stage{
+  margin-top:clamp(-18px,-1vw,0px);
+  z-index:3;
+}
+#root .dm-home.sky-home .dm-hero__learn{
+  display:inline-flex;
+  align-items:center;
+  align-self:center;
+  min-height:44px;
+  gap:12px;
+  border-bottom:1px solid rgba(10,53,80,.42);
+  color:#103c57;
+  font:800 .72rem/1 var(--dm-ui);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+}
+#root .dm-home.sky-home .dm-hero__learn svg{width:16px;height:16px}
+
+/* Uninterrupted sky is the material; chapters have only atmospheric light
+ * gradients rather than full-width opaque background plates. */
+#root .dm-home.sky-home > :is(
+  .dm-statement,.dm-home__seltzers,.dm-discovery,.dm-home__lifestyle,
+  .dm-home__principles,.dm-home__gummies,.dm-retail,.dm-learn
+){
+  background:transparent!important;
+  border:0!important;
+}
+#root .dm-home.sky-home > .dm-statement,
+#root .dm-home.sky-home > .dm-home__seltzers,
+#root .dm-home.sky-home > .dm-home__lifestyle,
+#root .dm-home.sky-home > .dm-home__principles,
+#root .dm-home.sky-home > .dm-home__gummies,
+#root .dm-home.sky-home > .dm-learn{
+  padding-block:clamp(86px,10vw,155px)!important;
+}
+#root .dm-home.sky-home > .dm-statement{
+  background:linear-gradient(180deg,rgba(232,248,255,.07),rgba(239,250,255,.19) 70%,transparent)!important;
+}
+#root .dm-home.sky-home > .dm-home__seltzers{
+  background:linear-gradient(180deg,transparent,rgba(237,249,255,.10),transparent)!important;
+}
+#root .dm-home.sky-home > .dm-home__gummies{
+  background:linear-gradient(180deg,transparent,rgba(241,252,254,.24),transparent)!important;
+}
+#root .dm-home.sky-home > .dm-learn{
+  background:linear-gradient(180deg,rgba(246,252,255,.12),rgba(247,253,255,.34))!important;
+}
+#root .dm-home.sky-home :is(.dm-statement,.lagom-lineup,.lifestyle-mosaic,.brand-principles,.dm-retail,.dm-learn){
+  color:#0e344a;
+}
+#root .dm-home.sky-home :is(.dm-statement,.dm-retail,.dm-learn) h2{
+  letter-spacing:-.052em;
+  line-height:1.02;
+}
+#root .dm-home.sky-home .dm-section-number{
+  color:#164b67;
+  letter-spacing:.16em;
+}
+#root .dm-home.sky-home .dm-statement__body{align-items:center}
+#root .dm-home.sky-home .dm-statement__body h2{
+  font-size:clamp(44px,5.7vw,100px);
+  font-weight:800;
+}
+#root .dm-home.sky-home .dm-statement__aside{
+  border-left:1px solid rgba(16,62,89,.25);
+  padding-left:clamp(24px,3vw,54px);
+}
+#root .dm-home.sky-home .dm-statement__aside p{
+  font-size:clamp(.98rem,1.3vw,1.14rem);
+}
+
+/* Open-air merchandise art direction; no rectangular product cards. */
+#root .dm-home .lagom-lineup{
+  width:min(100%,1480px);
+  margin:0 auto;
+  color:#11344b;
+}
+#root .dm-home .lagom-lineup__heading{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:28px;
+  margin-bottom:clamp(32px,5vw,72px);
+}
+#root .dm-home .lagom-lineup__heading-copy{min-width:0}
+#root .dm-home .lagom-lineup__eyebrow{
+  display:block;
+  margin-bottom:17px;
+  color:#235672;
+  font:850 .66rem/1.2 var(--dm-ui);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+#root .dm-home .lagom-lineup__heading h2{
+  max-width:12ch;
+  margin:0;
+  color:#0f334b;
+  font:800 clamp(45px,5.5vw,88px)/.97 var(--dm-ui);
+  letter-spacing:-.065em;
+  text-wrap:balance;
+}
+#root .dm-home .lagom-lineup__heading-copy>p{
+  max-width:55ch;
+  margin:20px 0 0;
+  color:#315c70;
+  font:550 clamp(.94rem,1.15vw,1.08rem)/1.55 var(--dm-ui);
+}
+#root .dm-home .lagom-lineup__all{
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  min-height:48px;
+  border-bottom:1px solid rgba(12,52,75,.60);
+  color:#103951;
+  font:800 .72rem/1.2 var(--dm-ui);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+}
+#root .dm-home .lagom-lineup__all svg{width:19px;height:19px}
+#root .dm-home .lagom-lineup__stage{
+  position:relative;
+  isolation:isolate;
+  border-top:1px solid rgba(16,80,113,.18);
+}
+#root .dm-home .lagom-lineup__stage::before{
+  content:"";
+  position:absolute;
+  top:clamp(220px,21vw,316px);
+  left:0;
+  right:0;
+  z-index:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(15,73,107,.20) 14%,rgba(15,73,107,.20) 86%,transparent);
+  pointer-events:none;
+}
+#root .dm-home .lagom-lineup__products{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(14px,2vw,34px);
+  min-width:0;
+  position:relative;
+  z-index:1;
+}
+#root .dm-home .lagom-lineup__product{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  background:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+#root .dm-home .lagom-lineup__number{
+  position:absolute;
+  top:16px;
+  left:4px;
+  z-index:2;
+  color:#315f77;
+  font:800 .59rem/1.2 var(--dm-ui);
+  letter-spacing:.1em;
+}
+#root .dm-home .lagom-lineup__number span{opacity:.52}
+#root .dm-home .lagom-lineup__product-media{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  min-width:0;
+  height:clamp(264px,25vw,368px);
+  text-decoration:none;
+  border:0;
+  border-radius:0;
+  background:none;
+  overflow:visible;
+}
+#root .dm-home .lagom-lineup__product-art{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+  min-width:0;
+  transform:translate3d(0,0,0);
+  transition:transform .6s cubic-bezier(.22,.82,.28,1);
+}
+#root .dm-home .lagom-lineup__product-media:hover .lagom-lineup__product-art,
+#root .dm-home .lagom-lineup__product-media:focus-visible .lagom-lineup__product-art{
+  transform:translate3d(0,-13px,0) rotate(-1.3deg);
+}
+#root .dm-home .lagom-lineup__product:nth-child(even) .lagom-lineup__product-media:hover .lagom-lineup__product-art{
+  transform:translate3d(0,-13px,0) rotate(1.3deg);
+}
+#root .dm-home .lagom-lineup__product .home-product-art{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:visible;
+}
+#root .dm-home .lagom-lineup__product .home-product-art--can .seltzer-can{
+  display:block!important;
+  width:auto!important;
+  height:clamp(205px,21vw,304px)!important;
+  max-height:96%!important;
+  aspect-ratio:889/1770;
+  filter:drop-shadow(0 18px 18px rgba(12,62,94,.17));
+}
+#root .dm-home .lagom-lineup__product .home-product-art--gummy img{
+  display:block!important;
+  width:100%!important;
+  height:clamp(200px,20vw,290px)!important;
+  max-height:96%!important;
+  object-fit:contain;
+  filter:drop-shadow(0 14px 14px rgba(12,62,94,.14));
+}
+#root .dm-home .lagom-lineup__image-link{
+  position:absolute;
+  right:9%;
+  bottom:8%;
+  display:grid;
+  width:39px;
+  height:39px;
+  place-items:center;
+  border:1px solid rgba(12,59,84,.23);
+  border-radius:50%;
+  color:#133d54;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .2s,transform .2s;
+}
+#root .dm-home .lagom-lineup__image-link svg{width:17px;height:17px}
+@media(hover:hover){
+  #root .dm-home .lagom-lineup__product-media:is(:hover,:focus-visible) .lagom-lineup__image-link{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+#root .dm-home .lagom-lineup__product-info{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:0;
+  min-width:0;
+  border-top:1px solid rgba(11,62,92,.24);
+  padding:18px 4px 0;
+  background:transparent!important;
+}
+#root .dm-home .lagom-lineup__flavor{
+  margin:0 0 7px;
+  color:#315c6f;
+  font:800 .58rem/1.3 var(--dm-ui);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+#root .dm-home .lagom-lineup__product-info h3{
+  margin:0 0 11px;
+  color:#0e354b;
+  font:750 clamp(20px,2vw,30px)/1.1 var(--dm-ui);
+  letter-spacing:-.042em;
+}
+#root .dm-home .lagom-lineup__product-info h3 a{
+  color:inherit;
+  text-decoration:none;
+}
+#root .dm-home .lagom-lineup__product-info h3 a:hover{text-decoration:underline;text-underline-offset:.18em}
+#root .dm-home .lagom-lineup__facts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 15px;
+  color:#315d74;
+  font:750 .65rem/1.4 var(--dm-ui);
+  letter-spacing:.025em;
+}
+#root .dm-home .lagom-lineup__facts span:not(:last-child)::after{
+  content:"·";
+  position:relative;
+  left:8px;
+}
+#root .dm-home .lagom-lineup__product-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px 14px;
+  margin-top:auto;
+  padding-top:18px;
+  color:#113a52;
+}
+#root .dm-home .lagom-lineup__price{
+  font:800 .92rem/1.2 var(--dm-ui);
+  letter-spacing:-.02em;
+}
+#root .dm-home .lagom-lineup__product-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  color:#12415d;
+  font:750 .67rem/1.2 var(--dm-ui);
+  text-decoration:none;
+}
+#root .dm-home .lagom-lineup__product-cta svg{width:15px;height:15px}
+#root .dm-home .lagom-lineup :is(a,button):focus-visible{
+  outline:2px solid #0c3f60;
+  outline-offset:4px;
+}
+#root .dm-home .lagom-lineup__collections{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:stretch;
+  gap:0 clamp(14px,3vw,38px);
+  margin:0 0 clamp(20px,3vw,40px);
+  border-bottom:1px solid rgba(16,70,98,.27);
+}
+#root .dm-home .lagom-lineup__collections button{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  min-height:54px;
+  padding:10px 0;
+  border:0!important;
+  border-radius:0!important;
+  color:#31566b;
+  background:transparent!important;
+  box-shadow:none!important;
+  font:750 clamp(.82rem,1vw,.98rem)/1.1 var(--dm-ui);
+  cursor:pointer;
+}
+#root .dm-home .lagom-lineup__collections button span{
+  font:800 .56rem/1 var(--dm-ui);
+  letter-spacing:.06em;
+  opacity:.6;
+}
+#root .dm-home .lagom-lineup__collections button::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;left:0;right:0;
+  height:2px;background:#123e56;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .25s ease;
+}
+#root .dm-home .lagom-lineup__collections button:is(.is-active,:hover){color:#0c344e}
+#root .dm-home .lagom-lineup__collections button.is-active::after{transform:scaleX(1)}
+
+/* Non-product sections: full-bleed typographic hierarchy with photographic
+ * editorial art, not a grid of unrelated floating card containers. */
+#root .dm-home.sky-home > .dm-discovery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid rgba(18,74,108,.22)!important;
+  border-bottom:1px solid rgba(18,74,108,.22)!important;
+  min-height:0;
+}
+#root .dm-home.sky-home .dm-discovery__tile{
+  min-height:clamp(470px,43vw,690px);
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+#root .dm-home.sky-home .dm-discovery__tile:first-child{
+  border-right:1px solid rgba(16,75,113,.19)!important;
+}
+#root .dm-home.sky-home .dm-discovery__tile::before{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse 60% 65% at 48% 55%,rgba(244,247,238,.35),transparent 81%);
+}
+#root .dm-home.sky-home .dm-discovery__tile--gummies::before{
+  background:radial-gradient(ellipse 65% 70% at 50% 48%,rgba(221,245,242,.30),transparent 80%);
+}
+#root .dm-home.sky-home .dm-discovery__art{inset:10% 17% 24%;z-index:1}
+#root .dm-home.sky-home .dm-discovery__art .home-product-art--can .seltzer-can{
+  height:min(94%,22rem)!important;
+  width:auto!important;
+}
+#root .dm-home.sky-home .dm-discovery__art .home-product-art--gummy img{
+  height:min(94%,22rem)!important;
+  width:100%!important;
+  object-fit:contain;
+}
+#root .dm-home.sky-home .dm-discovery__bottom{
+  border-top:1px solid rgba(19,68,93,.34);
+}
+#root .dm-home.sky-home .dm-discovery__bottom strong{
+  font:800 clamp(34px,4.7vw,78px)/1 var(--dm-ui);
+  letter-spacing:-.06em;
+}
+
+/* Photography collage: intentional asymmetry, no card chrome. */
+#root .dm-home .lifestyle-mosaic{
+  padding:0!important;
+}
+#root .dm-home .lifestyle-mosaic__header{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:clamp(20px,4vw,64px);
+  width:100%;
+  margin:0 0 clamp(30px,5vw,70px);
+}
+#root .dm-home .lifestyle-mosaic__header>p{
+  flex:0 0 clamp(100px,16vw,240px);
+  font:850 .67rem/1.35 var(--dm-ui);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#26556d;
+}
+#root .dm-home .lifestyle-mosaic__header h2{
+  max-width:15ch;
+  margin:0;
+  font:780 clamp(40px,5vw,76px)/1.03 var(--dm-ui);
+  letter-spacing:-.055em;
+  color:#103950;
+}
+#root .dm-home .lifestyle-mosaic__grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(230px,1fr));
+  gap:clamp(10px,1.4vw,22px);
+  align-items:stretch;
+}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile{
+  min-height:0!important;
+  height:auto;
+  border:0;
+  border-radius:3px;
+  box-shadow:none!important;
+  overflow:hidden;
+}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(1){grid-column:1/7;grid-row:1/3;min-height:620px!important}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(2){grid-column:7/10;grid-row:1}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(3){grid-column:10/13;grid-row:1}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(4){grid-column:7/13;grid-row:2}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile__shade{
+  background:linear-gradient(180deg,rgba(0,0,0,.02) 25%,rgba(4,30,39,.58) 100%);
+}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile__copy{
+  bottom:clamp(18px,2vw,34px);
+  left:clamp(18px,2vw,34px);
+  right:clamp(18px,2vw,34px);
+}
+#root .dm-home .lifestyle-mosaic__grid .editorial-tile__copy b{
+  font:750 clamp(26px,3vw,54px)/1 var(--dm-ui);
+  letter-spacing:-.05em;
+}
+
+/* A running numbered editorial manifesto, never three feature cards. */
+#root .dm-home .brand-principles{
+  padding:0!important;
+}
+#root .dm-home .brand-principles>header{
+  display:flex;
+  align-items:start;
+  gap:clamp(28px,6vw,100px);
+  margin-bottom:clamp(40px,5vw,72px);
+}
+#root .dm-home .brand-principles>header>p{
+  flex:0 0 clamp(100px,15vw,220px);
+  font:850 .67rem/1.25 var(--dm-ui);
+  letter-spacing:.15em;
+  color:#26556d;
+  text-transform:uppercase;
+}
+#root .dm-home .brand-principles>header h2{
+  max-width:15ch;
+  margin:0;
+  font:780 clamp(42px,5.2vw,79px)/1.03 var(--dm-ui);
+  letter-spacing:-.056em;
+  color:#103950;
+}
+#root .dm-home .brand-principles>div{
+  border-top:1px solid rgba(12,64,98,.3);
+}
+#root .dm-home .brand-principles .editorial-feature-card{
+  display:grid;
+  grid-template-columns:clamp(38px,6vw,85px) minmax(0,1fr);
+  gap:clamp(20px,5vw,90px);
+  margin:0;
+  padding:clamp(25px,3vw,46px) 0;
+  border:0!important;
+  border-bottom:1px solid rgba(12,64,98,.26)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+}
+#root .dm-home .brand-principles .editorial-feature-card>span{
+  margin-top:8px;
+  font:850 .67rem/1 var(--dm-ui);
+  color:#1b536f;
+}
+#root .dm-home .brand-principles .editorial-feature-card>div{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(230px,.7fr);
+  align-items:start;
+  gap:0 clamp(20px,4vw,70px);
+}
+#root .dm-home .brand-principles .editorial-feature-card div>p:first-child{
+  grid-column:1/-1;
+  margin:0 0 12px;
+  color:#36647b;
+  font:850 .61rem/1.2 var(--dm-ui);
+  letter-spacing:.1em;
+}
+#root .dm-home .brand-principles .editorial-feature-card h3{
+  margin:0;
+  max-width:19ch;
+  color:#113c54;
+  font:770 clamp(24px,3vw,46px)/1.12 var(--dm-ui);
+  letter-spacing:-.053em;
+}
+#root .dm-home .brand-principles .editorial-feature-card p:last-child{
+  margin:0;
+  max-width:56ch;
+  color:#31586c;
+  font:560 clamp(.9rem,1.06vw,1rem)/1.6 var(--dm-ui);
+}
+#root .dm-home.sky-home > .dm-retail{
+  min-height:clamp(480px,52vw,710px);
+}
+#root .dm-home.sky-home .dm-retail__copy{padding:clamp(54px,7vw,112px)}
+#root .dm-home.sky-home .dm-retail__copy h2{
+  font:800 clamp(48px,6.4vw,110px)/.99 var(--dm-ui);
+  letter-spacing:-.06em;
+}
+#root .dm-home.sky-home .dm-retail__media img{
+  object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 27%);
+  mask-image:linear-gradient(90deg,transparent 0%,#000 27%);
+}
+#root .dm-home.sky-home > .dm-learn{
+  align-items:start;
+  gap:clamp(40px,7vw,120px);
+}
+#root .dm-home.sky-home .dm-learn h2{
+  font:800 clamp(46px,6vw,94px)/1.02 var(--dm-ui);
+  letter-spacing:-.06em;
+}
+#root .dm-home.sky-home .dm-learn__questions{
+  border-top:1px solid rgba(16,70,94,.27);
+}
+#root .dm-home.sky-home .dm-learn__questions :is(.editorial-accordion__item,details){
+  border-color:rgba(16,70,94,.25)!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+/* Mobile continuity: two free-floating products per row, real CTA targets,
+ * collage reorganized without overflow, and safe-area aware header. */
+@media(max-width:1199px){
+  #root .dm-home .lagom-lineup__product-media{height:clamp(220px,27vw,320px)}
+  #root .dm-home .lagom-lineup__product .home-product-art--can .seltzer-can{
+    height:clamp(190px,23vw,260px)!important;
+  }
+  #root .dm-home .lagom-lineup__stage::before{top:clamp(185px,24vw,285px)}
+  #root .dm-home .brand-principles .editorial-feature-card>div{
+    grid-template-columns:minmax(0,1fr) minmax(200px,.65fr);
+  }
+}
+@media(max-width:899px){
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__inner{
+    padding-top:clamp(100px,12svh,136px);
+    padding-bottom:26px;
+  }
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__title{
+    font-size:clamp(40px,8.9vw,78px);
+    line-height:.96;
+    letter-spacing:-.065em;
+  }
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__eyebrow{
+    font-size:.64rem;
+    margin-bottom:13px;
+  }
+  #root .dm-home.sky-home .dm-hero__shop-now{
+    margin-top:20px;
+    min-height:48px;
+    padding:12px 22px;
+  }
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__stage{
+    width:100%;
+    margin-top:clamp(20px,5vw,42px);
+  }
+  #root .dm-home.sky-home .dm-hero__foot{
+    margin-top:12px;
+  }
+  #root .dm-home.sky-home .dm-hero__learn{font-size:.68rem}
+  #root .dm-home.sky-home > :is(.dm-statement,.dm-home__seltzers,.dm-home__lifestyle,.dm-home__principles,.dm-home__gummies,.dm-learn){
+    padding-block:clamp(66px,10svh,98px)!important;
+  }
+  #root .dm-home .lagom-lineup__heading h2{font-size:clamp(40px,7vw,67px)}
+  #root .dm-home .lagom-lineup__products{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 20px}
+  #root .dm-home .lagom-lineup__product-media{height:clamp(220px,32vw,300px)}
+  #root .dm-home .lagom-lineup__product .home-product-art--can .seltzer-can{
+    height:clamp(190px,27vw,270px)!important;
+  }
+  #root .dm-home .lagom-lineup__product .home-product-art--gummy img{
+    height:clamp(184px,26vw,250px)!important;
+  }
+  #root .dm-home .lagom-lineup__stage::before{display:none}
+  #root .dm-home .lagom-lineup__image-link{opacity:1;transform:none}
+  #root .dm-home .brand-principles .editorial-feature-card>div{
+    grid-template-columns:minmax(0,1fr);
+    gap:14px;
+  }
+  #root .dm-home .lifestyle-mosaic__grid{
+    grid-template-rows:repeat(2,minmax(210px,1fr));
+  }
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(1){min-height:500px!important}
+}
+@media(max-width:699px){
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__title{
+    font-size:clamp(35px,8.5vw,57px);
+  }
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__eyebrow{
+    font-size:.58rem;
+  }
+  #root .dm-home.sky-home .dm-statement__aside{
+    border-left:0;
+    padding-left:0;
+    border-top:1px solid rgba(16,62,89,.25);
+    padding-top:24px;
+  }
+  #root .dm-home .lagom-lineup__heading{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:26px;
+  }
+  #root .dm-home .lagom-lineup__heading h2{font-size:clamp(36px,10vw,53px)}
+  #root .dm-home .lagom-lineup__heading-copy>p{margin-top:12px;font-size:.88rem}
+  #root .dm-home .lagom-lineup__all{min-height:44px}
+  #root .dm-home .lagom-lineup__products{gap:25px 13px}
+  #root .dm-home .lagom-lineup__product-media{height:clamp(182px,49vw,238px)}
+  #root .dm-home .lagom-lineup__number{top:14px;font-size:.5rem}
+  #root .dm-home .lagom-lineup__product .home-product-art--can .seltzer-can{
+    height:clamp(162px,42vw,218px)!important;
+  }
+  #root .dm-home .lagom-lineup__product .home-product-art--gummy img{
+    height:clamp(155px,40vw,209px)!important;
+  }
+  #root .dm-home .lagom-lineup__image-link{width:32px;height:32px;right:2%;bottom:7%}
+  #root .dm-home .lagom-lineup__product-info{padding:13px 1px 0}
+  #root .dm-home .lagom-lineup__product-info h3{
+    font-size:clamp(17px,4.5vw,21px);
+    line-height:1.13;
+  }
+  #root .dm-home .lagom-lineup__facts{font-size:.59rem;gap:4px 10px}
+  #root .dm-home .lagom-lineup__facts span:not(:last-child)::after{left:5px}
+  #root .dm-home .lagom-lineup__product-bottom{gap:2px 12px;padding-top:8px}
+  #root .dm-home .lagom-lineup__product-cta{font-size:.6rem}
+  #root .dm-home .lagom-lineup__collections{flex-wrap:nowrap;gap:18px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
+  #root .dm-home .lagom-lineup__collections button{flex:0 0 auto;white-space:nowrap;font-size:.81rem;min-height:50px}
+  #root .dm-home.sky-home > .dm-discovery{grid-template-columns:1fr}
+  #root .dm-home.sky-home .dm-discovery__tile:first-child{
+    border-right:0!important;
+    border-bottom:1px solid rgba(16,75,113,.19)!important;
+  }
+  #root .dm-home.sky-home .dm-discovery__tile{min-height:clamp(380px,105vw,535px)}
+  #root .dm-home.sky-home .dm-discovery__art{inset:12% 15% 24%}
+  #root .dm-home .lifestyle-mosaic__header,
+  #root .dm-home .brand-principles>header{display:block}
+  #root .dm-home .lifestyle-mosaic__header>p,
+  #root .dm-home .brand-principles>header>p{display:block;margin-bottom:17px}
+  #root .dm-home .lifestyle-mosaic__header h2,
+  #root .dm-home .brand-principles>header h2{
+    font-size:clamp(35px,9.5vw,55px);
+  }
+  #root .dm-home .lifestyle-mosaic__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:auto;
+    gap:12px;
+  }
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(1){
+    grid-column:1/-1;grid-row:auto;min-height:clamp(290px,83vw,440px)!important;
+  }
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(2),
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(3){
+    grid-column:auto;grid-row:auto;min-height:clamp(220px,55vw,350px)!important;
+  }
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile:nth-child(4){
+    grid-column:1/-1;grid-row:auto;min-height:clamp(220px,55vw,330px)!important;
+  }
+  #root .dm-home .lifestyle-mosaic__grid .editorial-tile__copy b{
+    font-size:clamp(22px,5.5vw,33px);
+  }
+  #root .dm-home .brand-principles .editorial-feature-card{
+    grid-template-columns:30px minmax(0,1fr);
+    gap:16px;
+  }
+  #root .dm-home .brand-principles .editorial-feature-card h3{
+    font-size:clamp(23px,6vw,32px);
+  }
+  #root .dm-home.sky-home .dm-retail__copy{padding:60px 18px 45px}
+  #root .dm-home.sky-home .dm-retail__media img{
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 15%);
+    mask-image:linear-gradient(180deg,transparent,#000 15%);
+  }
+  #root .dm-home.sky-home .dm-learn h2{font-size:clamp(47px,11vw,72px)}
+}
+@media(prefers-reduced-motion:reduce){
+  #root .dm-home .lagom-lineup__product-art,
+  #root .dm-home .lagom-lineup__collections button::after,
+  #root .dm-home.sky-home .dm-hero__shop-now{
+    transition:none!important;
+    transform:none!important;
+  }
+}
