@@ -139,7 +139,7 @@ export default function ShelflineHeroShelf({ products, tilt = 1 }) {
 
   if (!items.length) return null;
 
-  const showProduct = id => { if (!reducedMotion) setActiveId(id); };
+  const showProduct = id => { setActiveId(id); };
   const onProductClick = (event, id) => {
     if (event.detail === 0 || !window.matchMedia("(hover: none)").matches) return;
     if (activeId !== id || Date.now() > touchUntilRef.current) {
