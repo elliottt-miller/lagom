@@ -113,7 +113,7 @@ export default function AgeGateTransition({
     const gateClouds=gate.querySelector('.age-gate__live-clouds, .age-gate__static-clouds')
     const gateGlow=gate.querySelector('.age-gate__atmosphere-glow')
     const hero=document.querySelector('.editorial-home__campaign-scene, .sky-home .atmospheric-scene-hero')
-    const heroMedia=hero?.querySelector('.shs__can img, .flavor-artwork-scene__fallback img, .legacy-sky-hero__product--fullbleed img')
+    const heroMedia=hero?.querySelector('.dm-hero__stage, .flavor-artwork-scene__fallback img, .legacy-sky-hero__product--fullbleed img')
     const heroContent=hero?.querySelector('.dm-hero__top, .product-stage__meta, .legacy-sky-hero__content')
     const heroTitle=hero?.querySelector('.dm-hero__title, .campaign-headline h1, .legacy-sky-hero h1')
     const heroLede=hero?.querySelector('.dm-hero__eyebrow, .campaign-headline__eyebrow, .legacy-sky-hero__lede')
