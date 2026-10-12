@@ -129,6 +129,11 @@ body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-he
 body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-hero h1,
 body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-hero__lede,
 body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-hero__actions,
+body.age-gate-cinematic-handoff .dm-home .dm-hero__stage,
+body.age-gate-cinematic-handoff .dm-home .dm-hero__top,
+body.age-gate-cinematic-handoff .dm-home .dm-hero__title,
+body.age-gate-cinematic-handoff .dm-home .dm-hero__eyebrow,
+body.age-gate-cinematic-handoff .dm-home .dm-hero__shop-now,
 body.age-gate-cinematic-handoff .announcement,
 body.age-gate-cinematic-handoff .site-header,
 body.age-gate-cinematic-handoff .mobile-reference-header{
@@ -250,6 +255,8 @@ body.age-gate-cinematic-handoff .mobile-reference-header{
 
   body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-hero__product--fullbleed img,
   body.age-gate-cinematic-handoff .sky-home .atmospheric-scene-hero .legacy-sky-hero__content,
+  body.age-gate-cinematic-handoff .dm-home .dm-hero__stage,
+  body.age-gate-cinematic-handoff .dm-home .dm-hero__top,
   body.age-gate-cinematic-handoff .announcement,
   body.age-gate-cinematic-handoff .site-header,
   body.age-gate-cinematic-handoff .mobile-reference-header{
