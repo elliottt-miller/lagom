@@ -1,0 +1,13 @@
+{
+  "source": "https://next-page-on-scroll.framer.website/blog/whats-new",
+  "platform": "framer",
+  "captureMode": "html-with-runtime",
+  "generatedAt": "2026-10-13T12:01:08.689Z",
+  "assets": 117,
+  "failedAssets": [],
+  "subpages": 0,
+  "visualValidation": "not-run",
+  "limitations": [
+    "Server-side accounts, payments, search and form processing are not exported."
+  ]
+}

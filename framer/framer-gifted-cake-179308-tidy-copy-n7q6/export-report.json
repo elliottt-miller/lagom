@@ -1,0 +1,13 @@
+{
+  "source": "https://gifted-cake-179308.framer.app/",
+  "platform": "framer",
+  "captureMode": "html-with-runtime",
+  "generatedAt": "2026-10-13T11:56:35.578Z",
+  "assets": 546,
+  "failedAssets": [],
+  "subpages": 0,
+  "visualValidation": "not-run",
+  "limitations": [
+    "Server-side accounts, payments, search and form processing are not exported."
+  ]
+}
