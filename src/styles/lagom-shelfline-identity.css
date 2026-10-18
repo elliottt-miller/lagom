@@ -1,0 +1,125 @@
+/* Lagom identity / Shelfline typographic refinement — 2026-10-17
+ * Ownership: typography, brand accents, buttons and product text ONLY.
+ * Deliberately does NOT change homepage geometry, sky, atmospheric layers,
+ * hero shelf, animation, header translucency, age gate, or commerce logic.
+ * Reference: framer/shelfline-copy-react/src/styles.module.css
+ * Gabarito + Azeret Mono + Manrope are its identifiable font families.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --lagom-brand-green:#0f513d;
+  --lagom-brand-green-deep:#0a4231;
+  --lagom-brand-ink:#101713;
+  --lagom-type-display:"Gabarito","Manrope","Avenir Next",sans-serif;
+  --lagom-type-body:"Manrope","Avenir Next","Segoe UI",sans-serif;
+  --lagom-type-detail:"Azeret Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --font-display:var(--lagom-type-display);
+  --font-primary:var(--lagom-type-body);
+  --font-ui:var(--lagom-type-body);
+  --dm-ui:var(--lagom-type-body);
+  --dm-display:var(--lagom-type-display);
+  --color-accent:var(--lagom-brand-green);
+  --green:var(--lagom-brand-green);
+  --green-strong:var(--lagom-brand-green-deep);
+  --tracking-display:-.052em;
+}
+body {font-family:var(--lagom-type-body)}
+:is(h1,h2,h3,h4,h5,h6) {font-family:var(--lagom-type-display);font-synthesis:none}
+:is(button,input,select,textarea) {font-family:var(--lagom-type-body)}
+/* Semantic roles: modern, rounded large type; measured utility typography.
+   No text transformations are applied globally to product/flavor names. */
+:is(.dm-home,.shop-page--reference,.editorial-page) :is(h1,h2,h3),
+:is(.editorial-product-card__name,.pdp-copy h1,.pdp-copy h2,.shop-intro__copy h1) {
+  font-family:var(--lagom-type-display)!important;
+  font-synthesis:none;
+}
+:is(.dm-home,.shop-page--reference) :is(
+ .dm-section-number,.dm-eyebrow,.dm-discovery__index,
+ .lagom-lineup__eyebrow,.editorial-product-card__eyebrow
+) {
+  font-family:var(--lagom-type-detail)!important;
+  font-size:clamp(.62rem,.76vw,.73rem)!important;
+  font-weight:500!important;
+  line-height:1.5!important;
+  letter-spacing:.09em!important;
+}
+/* Restore the familiar Lagom restrained, green-on-cream product identity
+   outside the blue atmospheric homepage. */
+:is(.shop-page--reference,.pdp,.merch-page,.editorial-product-card) :is(
+ .shop-card-add,.primary-bar,.add-square
+) {background:var(--lagom-brand-green)}
+:is(.shop-page--reference,.pdp,.merch-page) :is(
+ .shop-card-add,.primary-bar,.add-square
+):hover {background:var(--lagom-brand-green-deep)}
+.editorial-product-card__name {
+  font-size:clamp(1.08rem,1.55vw,1.42rem)!important;
+  font-weight:700!important;
+  line-height:1.12!important;
+  letter-spacing:-.032em!important;
+  text-wrap:balance;
+}
+.editorial-product-card__description {
+  font-family:var(--lagom-type-body)!important;
+  font-weight:500!important;
+  line-height:1.55!important;
+}
+.editorial-product-card__meta .product-facts span {
+  font-family:var(--lagom-type-detail)!important;
+  font-size:.61rem!important;
+  font-weight:500!important;
+  letter-spacing:.015em!important;
+}
+.editorial-product-card__price .cpc-13__now {font-family:var(--lagom-type-display)!important;font-weight:750!important}
+:where(.dm-home,.shop-page--reference) .dm-inline-link,
+:where(.dm-home,.shop-page--reference) .dm-button,
+.editorial-product-card__cta {
+  font-family:var(--lagom-type-body)!important;
+  font-weight:800!important;
+  letter-spacing:.045em!important;
+}
+#root .dm-home.sky-home .dm-hero--lagom .dm-hero__title {
+  font-family:var(--lagom-type-display)!important;
+  font-weight:800!important;
+  letter-spacing:-.063em!important;
+}
+#root .dm-home.sky-home .dm-hero__shop-now {
+  font-family:var(--lagom-type-body)!important;
+  font-weight:800!important;
+}
+/* Respect existing hero colors and palette of the sky, but reduce unrelated
+   Mango-esque section heading treatment. All sections remain in place. */
+#root .dm-home.sky-home :is(.dm-statement,.dm-retail,.dm-learn) h2 {
+  font-family:var(--lagom-type-display)!important;
+  font-weight:800!important;
+  letter-spacing:-.055em!important;
+  line-height:.98!important;
+}
+#root .dm-home.sky-home :is(.dm-statement,.dm-retail,.dm-learn) h2 em {
+  font-family:inherit;
+  font-weight:500;
+  font-style:normal;
+}
+#root .dm-home.sky-home .lagom-lineup__heading :is(h2,h3),
+#root .dm-home.sky-home .dm-discovery__bottom strong {
+  font-family:var(--lagom-type-display)!important;
+  letter-spacing:-.045em!important;
+}
+:is(.dm-home,.shop-page--reference) a:focus-visible,
+:is(.dm-home,.shop-page--reference) button:focus-visible {
+  outline-width:3px;
+  outline-offset:3px;
+}
+@media(max-width:699px) {
+  .editorial-product-card__name {font-size:1rem!important;line-height:1.2!important}
+  #root .dm-home.sky-home .dm-hero--lagom .dm-hero__title {
+    letter-spacing:-.055em!important;
+    overflow-wrap:normal;
+  }
+  :is(.dm-home,.shop-page--reference) :is(
+    .dm-section-number,.dm-eyebrow,.dm-discovery__index,.lagom-lineup__eyebrow
+  ) {font-size:.6rem!important;letter-spacing:.06em!important}
+}
+@media(prefers-reduced-motion:reduce) {
+  /* Existing motion preferences remain authoritative. */
+}
