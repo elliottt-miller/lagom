@@ -42,3 +42,6 @@
 
 /* Final homepage presentation owner: original Lagom sky/CTA + unboxed commerce. */
 @import './home/unified-atmospheric-editorial.css';
+
+/* Lagom-first Shelfline typography; visual-only refinement owner. */
+@import './lagom-shelfline-identity.css';
