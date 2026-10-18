@@ -4,13 +4,6 @@
    Shelfline source scope is limited to .shs inside the homepage hero.
    CSS remains owned by native React; no Framer runtime imported.
 */
-@font-face{
-  font-family:"Lagom Mango Display";
-  src:url("../../framer/framer-defiant-mango-016789-swift-export-epxf/assets/fonts/zrfm0H3Lx-P2Xvs2ArDfBi8.woff2") format("woff2");
-  font-style:normal;
-  font-weight:400;
-  font-display:swap;
-}
 :root{
   --dm-sky:#91d9ff;
   --dm-sky-pale:#d4effb;
@@ -22,8 +15,6 @@
   --dm-ink:#171a18;
   --dm-muted:#565a56;
   --dm-line:rgba(23,26,24,.17);
-  --dm-display:"Lagom Mango Display","Arial Black",Impact,sans-serif;
-  --dm-ui:"Manrope","Avenir Next","Segoe UI",sans-serif;
   --dm-gutter:clamp(18px,4.2vw,72px);
   --dm-wide:1480px;
   --color-bg:#f7f4ee;
@@ -35,15 +26,10 @@
   --color-muted:var(--dm-muted);
   --color-line:#e7dfd3;
   --color-line-strong:#bbaa98;
-  --color-accent:#174a48;
-  --font-primary:var(--dm-ui);
-  --font-ui:var(--dm-ui);
-  --font-display:"Manrope","Inter","Arial",sans-serif;
   --page-gutter:var(--dm-gutter);
   --radius-media:18px;
   --type-heading-xl:clamp(2.8rem,5.6vw,6rem);
   --type-heading-lg:clamp(2.4rem,4.9vw,4.9rem);
-  --tracking-display:-.025em;
 }
 body{background:var(--color-paper);color:var(--color-ink)}
 .app-shell{background:var(--color-paper)}
