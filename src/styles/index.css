@@ -45,3 +45,6 @@
 
 /* Lagom-first Shelfline typography; visual-only refinement owner. */
 @import './lagom-shelfline-identity.css';
+
+/* Shared presentation across non-home customer journeys. */
+@import './lagom-route-polish.css';
