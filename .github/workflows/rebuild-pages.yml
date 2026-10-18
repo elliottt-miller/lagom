@@ -1,0 +1,44 @@
+name: Rebuild GitHub Pages for /lagom/
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rebuild-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Build site for this repository's Pages subpath
+        env:
+          GITHUB_PAGES_BASE: /lagom/
+        run: npm run build
+      - name: Validate generated HTML assets and site prefix
+        run: |
+          test -f docs/index.html
+          grep -q '/lagom/assets/' docs/index.html
+          if grep -q '/lagom-naturals/assets/' docs/index.html; then
+            echo 'Incorrect asset base in generated Pages bundle'
+            exit 1
+          fi
+          test -f docs/.nojekyll || touch docs/.nojekyll
+      - name: Commit rebuilt Pages output
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A docs/
+          if ! git diff --cached --quiet; then
+            git commit -m 'build(pages): publish Lagom frontend at /lagom/'
+            git push origin HEAD:main
+          fi
