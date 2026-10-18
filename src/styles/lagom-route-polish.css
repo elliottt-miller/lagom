@@ -44,7 +44,7 @@
 :is(.cart-page,.checkout-page,.pdp,.merch-detail) :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea){
  min-height:var(--lagom-control-height);
 }
-:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar,.linkbar){
+:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar){
  min-height:var(--lagom-control-height);
  background:var(--lagom-brand-green);
  color:#fff;
@@ -52,7 +52,7 @@
  font-weight:800;
  letter-spacing:.02em;
 }
-:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar,.linkbar):not(:disabled):hover{
+:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar):not(:disabled):hover{
  background:var(--lagom-brand-green-deep);
 }
 :is(.pdp,.merch-detail) :is(.pdp-facts,.pdp-detail-grid,.merch-detail-section,.size-row,.option-line){
