@@ -75,6 +75,8 @@ export default function ScrollCloudParallax() {
     <div ref={ref} className="sky-home__scroll-clouds" aria-hidden="true">
       <div className="sky-home__scroll-clouds-mid" />
       <div className="sky-home__scroll-clouds-near" />
+      <div className="sky-home__scroll-clouds-high" />
+      <div className="sky-home__scroll-clouds-low" />
     </div>
   );
 }
