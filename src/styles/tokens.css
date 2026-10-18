@@ -9,12 +9,20 @@
   --color-muted:#6f6d65;
   --color-line:#dcd7cd;
   --color-line-strong:#c6c0b4;
-  --color-accent:#0f513d;
+  --color-accent:var(--lagom-brand-green);
 
-  /* Editorial type system. The template is a scale reference, not a font source. */
-  --font-display:"Playfair Display",Georgia,"Times New Roman",serif;
-  --font-primary:"Manrope","Avenir Next","Segoe UI",sans-serif;
-  --font-ui:"Manrope","Avenir Next","Segoe UI",sans-serif;
+  /* Canonical Lagom typography; Shelfline is a typographic reference only. */
+  --lagom-brand-green:#0f513d;
+  --lagom-brand-green-deep:#0a4231;
+  --lagom-brand-ink:#101713;
+  --lagom-type-display:"Gabarito","Manrope","Avenir Next",sans-serif;
+  --lagom-type-body:"Manrope","Avenir Next","Segoe UI",sans-serif;
+  --lagom-type-detail:"Azeret Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --font-display:var(--lagom-type-display);
+  --font-primary:var(--lagom-type-body);
+  --font-ui:var(--lagom-type-body);
+  --dm-ui:var(--lagom-type-body);
+  --dm-display:var(--lagom-type-display);
   --font-body:var(--font-primary);
   --font-utility:var(--font-ui);
 
@@ -28,7 +36,7 @@
   --type-meta:.75rem;
   --type-micro:.6875rem;
 
-  --tracking-display:-.045em;
+  --tracking-display:-.052em;
   --tracking-heading:-.025em;
   --tracking-meta:.08em;
 
@@ -79,7 +87,8 @@
   --motion-slow:580ms;
 
   /* Compatibility aliases retained while legacy presentation layers are retired. */
-  --green:var(--color-accent);
+  --green:var(--lagom-brand-green);
+  --green-strong:var(--lagom-brand-green-deep);
   --green-soft:#edf5f1;
   --ink:var(--color-ink);
   --ink-soft:var(--color-ink-soft);
