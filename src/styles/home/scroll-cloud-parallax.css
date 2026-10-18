@@ -53,3 +53,49 @@
     will-change:auto;
   }
 }
+
+/* Additional cloud silhouettes complement—not replace—the existing two.
+   All four planes use the same responsive, scroll-smoothed CSS variables.
+   Individual scale/placement provide visual variety without extra WebGL. */
+.sky-home__scroll-clouds-high,
+.sky-home__scroll-clouds-low {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-size:contain;
+  will-change:transform;
+}
+.sky-home__scroll-clouds-high {
+  background-image:url('../../assets/atmosphere/clouds/cloud-10.webp');
+  background-size:clamp(230px,34vw,640px) auto;
+  background-position:14% 13%;
+  opacity:.23;
+  transform:translate3d(var(--cloud-scroll-mid-x),var(--cloud-scroll-mid-y),0) scale(.92);
+}
+.sky-home__scroll-clouds-low {
+  background-image:url('../../assets/atmosphere/clouds/cloud-19.webp');
+  background-size:clamp(240px,38vw,740px) auto;
+  background-position:88% 72%;
+  opacity:.16;
+  transform:translate3d(var(--cloud-scroll-drift-x),var(--cloud-scroll-near-y),0) scale(1.08);
+}
+@media(max-width:899px){
+  .sky-home__scroll-clouds-high {
+    background-size:58vw auto;
+    background-position:-12% 20%;
+    opacity:.17;
+  }
+  .sky-home__scroll-clouds-low {
+    background-size:72vw auto;
+    background-position:112% 67%;
+    opacity:.14;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .sky-home__scroll-clouds-high,
+  .sky-home__scroll-clouds-low {
+    transform:none!important;
+    will-change:auto;
+  }
+}

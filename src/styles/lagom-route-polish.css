@@ -1,0 +1,101 @@
+/* Lagom storefront: shared non-home page art direction.
+ * Scope: typographic rhythm, surfaces, controls and readability.
+ * No route, product, checkout logic, animations, or homepage sky overrides.
+ */
+:root{
+ --lagom-page-max:1380px;
+ --lagom-copy-max:68ch;
+ --lagom-rule:rgba(16,23,19,.14);
+ --lagom-soft:rgba(255,255,255,.7);
+ --lagom-control-height:48px;
+}
+:is(.editorial-route,.about-story-page,.shop-page--reference,.editorial-page,.pdp,.cart-page,.checkout-page,.merch-detail){
+ color:var(--lagom-brand-ink);
+ font-family:var(--lagom-type-body);
+}
+:is(.editorial-route,.about-story-page,.editorial-page,.merch-detail,.pdp) :is(h1,h2,h3){
+ font-family:var(--lagom-type-display);
+ font-synthesis:none;
+ letter-spacing:-.045em;
+ text-wrap:balance;
+}
+:is(.editorial-route,.about-story-page,.editorial-page,.merch-detail,.pdp) :is(p,li){
+ line-height:1.65;
+ overflow-wrap:break-word;
+}
+:is(.editorial-route,.about-story-page,.editorial-page,.merch-detail,.pdp) :is(p,li):not([class]){
+ max-width:var(--lagom-copy-max);
+}
+:is(.story-kicker,.pdp-brand,.merch-brand,.editorial-route__aside,.option-label,.checkout-step){
+ font-family:var(--lagom-type-detail);
+ letter-spacing:.06em;
+}
+:is(.story-hero__content,.story-origin__copy,.story-life__copy,.editorial-route__content){
+ min-width:0;
+}
+:is(.editorial-route,.merch-detail,.cart-page,.checkout-page) :is(a,button,input,select,textarea):focus-visible{
+ outline:3px solid var(--lagom-brand-green);
+ outline-offset:3px;
+}
+:is(.cart-page,.checkout-page,.pdp,.merch-detail) :is(input,select,textarea){
+ font-family:var(--lagom-type-body);
+ accent-color:var(--lagom-brand-green);
+}
+:is(.cart-page,.checkout-page,.pdp,.merch-detail) :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea){
+ min-height:var(--lagom-control-height);
+}
+:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar){
+ min-height:var(--lagom-control-height);
+ background:var(--lagom-brand-green);
+ color:#fff;
+ font-family:var(--lagom-type-body);
+ font-weight:800;
+ letter-spacing:.02em;
+}
+:is(.pdp,.merch-detail,.cart-page,.checkout-page) :is(.primary-bar):not(:disabled):hover{
+ background:var(--lagom-brand-green-deep);
+}
+:is(.pdp,.merch-detail) :is(.pdp-facts,.pdp-detail-grid,.merch-detail-section,.size-row,.option-line){
+ border-color:var(--lagom-rule);
+}
+:is(.cart-page,.checkout-page) :is(.totals,.checkout-summary,.checkout-section){
+ border-color:var(--lagom-rule);
+}
+:is(.cart-page,.checkout-page) :is(.cart-row,.checkout-summary__item){
+ min-width:0;
+}
+:is(.cart-page,.checkout-page) :is(.cart-item-copy,.checkout-summary__heading){
+ min-width:0;
+ overflow-wrap:anywhere;
+}
+.checkout-page :is(.checkout-section__heading,.checkout-summary__heading){
+ font-family:var(--lagom-type-display);
+ letter-spacing:-.03em;
+}
+.checkout-page .checkout-field :is(label,input,select,textarea){
+ font-family:var(--lagom-type-body);
+}
+.checkout-page .checkout-steps{
+ font-family:var(--lagom-type-detail);
+}
+.about-story-page :is(.story-origin__copy,.story-life__copy) h2{
+ font-weight:800;
+}
+.editorial-learn :is(h1,h2),
+.editorial-visit :is(h1,h2){
+ font-weight:750;
+ line-height:1.02;
+}
+/* Keep mobile copy breathable and form controls touch accessible without
+ * altering grid definitions, viewport heights or existing page sequencing. */
+@media(max-width:899px){
+ :is(.editorial-route,.about-story-page,.editorial-page,.pdp,.merch-detail,.cart-page,.checkout-page){
+  --lagom-control-height:46px;
+ }
+ :is(.cart-page,.checkout-page,.pdp,.merch-detail) :is(button,select,input[type="button"],input[type="submit"]){
+  touch-action:manipulation;
+ }
+ .checkout-page :is(.checkout-layout,.checkout-workflow,.checkout-summary){
+  min-width:0;
+ }
+}
