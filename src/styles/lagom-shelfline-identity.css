@@ -7,23 +7,7 @@
  */
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600&family=Gabarito:wght@400;500;600;700;800;900&display=swap');
 
-:root {
-  --lagom-brand-green:#0f513d;
-  --lagom-brand-green-deep:#0a4231;
-  --lagom-brand-ink:#101713;
-  --lagom-type-display:"Gabarito","Manrope","Avenir Next",sans-serif;
-  --lagom-type-body:"Manrope","Avenir Next","Segoe UI",sans-serif;
-  --lagom-type-detail:"Azeret Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --font-display:var(--lagom-type-display);
-  --font-primary:var(--lagom-type-body);
-  --font-ui:var(--lagom-type-body);
-  --dm-ui:var(--lagom-type-body);
-  --dm-display:var(--lagom-type-display);
-  --color-accent:var(--lagom-brand-green);
-  --green:var(--lagom-brand-green);
-  --green-strong:var(--lagom-brand-green-deep);
-  --tracking-display:-.052em;
-}
+/* Global brand and typography tokens are owned by tokens.css. */
 body {font-family:var(--lagom-type-body)}
 :is(h1,h2,h3,h4,h5,h6) {font-family:var(--lagom-type-display);font-synthesis:none}
 :is(button,input,select,textarea) {font-family:var(--lagom-type-body)}
